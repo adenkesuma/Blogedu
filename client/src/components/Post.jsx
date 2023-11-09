@@ -17,15 +17,16 @@ export default function Post({
       </figure>
 
       <div className="post__content">
-        <h2>{title}</h2>
-        <p className="info">
-          <p className="author">{author.username}</p>
+        <div className="post__box">
+          <h2 className="post__heading">{title.slice(0, 180)}</h2>
+          <p className="post__summary">{summary.slice(0, 240)}</p>
+          <Link className="post__detail" to={`/post/${_id}`}>Detail</Link>
+        </div>
+
+        <div className="post__info">
+          <span>{author.username}</span>
           <time>{formatISO9075(new Date(createdAt))}</time>
-        </p>
-        <p className="summary">{summary}</p>
-        <Link to={`/post/${_id}`}>
-          Detail
-        </Link>
+        </div>
       </div>
     </div>
   );
