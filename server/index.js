@@ -19,7 +19,15 @@ app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads', express.static(__dirname + '/uploads'));
 
-mongoose.connect('mongodb+srv://blog:RD8paskYC8Ayj09u@cluster0.pflplid.mongodb.net/?retryWrites=true&w=majority');
+// mongoose.connect(`mongodb+srv://aden-kesuma:adendb@atlascluster.gtvayek.mongodb.net/`);
+mongoose.connect('mongodb://127.0.0.1:27017/Blogedu', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}).then(() => {
+  console.log('Berhasil terhubung ke mongodb');
+}).catch((err) => {
+  console.log(`Gagal terhubung ke mongodb ${err}`)
+})
 
 app.post('/register', async (req,res) => {
   const {username,password} = req.body;
@@ -135,4 +143,3 @@ app.get('/post/:id', async (req, res) => {
 })
 
 app.listen(4000);
-//
