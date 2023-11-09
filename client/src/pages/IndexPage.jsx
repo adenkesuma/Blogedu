@@ -1,4 +1,4 @@
-import Post from "../Post";
+import Post from "../components/Post";
 import {useEffect, useState} from "react";
 
 export default function IndexPage() {
