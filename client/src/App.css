@@ -163,6 +163,7 @@ main {
   border-radius: 8px;
   background-position: center;
   background-size: cover;
+  object-fit: cover;
   background-repeat: no-repeat;
 }
 
@@ -217,6 +218,7 @@ main {
 
 /* post page */
 .post-page {
+  margin-bottom: 60px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -265,6 +267,10 @@ main {
 .post-page__image,
 .post-page__image img {
   border-radius: 10px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .post-page__summary {
@@ -319,7 +325,7 @@ main {
 
 /* auth */
 .auth {
-  padding-top: 200px;
+  padding-top: 120px;
 
   display: flex;
   justify-content: center;

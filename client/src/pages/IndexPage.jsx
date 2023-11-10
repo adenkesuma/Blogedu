@@ -15,11 +15,9 @@ export default function IndexPage() {
 
   return (
     <div className="container">
-      <div>
-        {posts.length > 0 && posts.map(post => (
-          <Post {...post} />
-        ))}
-      </div>
-    </div>
+      {posts.length > 0 && posts.map(post => (
+        <Post {...post} />
+      ))}
+    </div>   
   )
 }

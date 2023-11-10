@@ -15,28 +15,33 @@ export default function EditPost() {
     fetch('http://localhost:4000/post/'+id)
       .then(response => {
         response.json().then(postInfo => {
-          setTitle(postInfo.title);
-          setContent(postInfo.content);
-          setSummary(postInfo.summary);
-        });
-      });
-  }, []);
+          setTitle(postInfo.title)
+          setContent(postInfo.content)
+          setSummary(postInfo.summary)
+        })
+      })
+  }, [])
 
   async function updatePost(ev) {
-    ev.preventDefault();
-    const data = new FormData();
-    data.set('title', title);
-    data.set('summary', summary);
-    data.set('content', content);
-    data.set('id', id);
+    ev.preventDefault()
+
+    const data = new FormData()
+
+    data.set('title', title)
+    data.set('summary', summary)
+    data.set('content', content)
+    data.set('id', id)
+
     if (files?.[0]) {
       data.set('file', files?.[0]);
     }
+
     const response = await fetch('http://localhost:4000/post', {
       method: 'PUT',
       body: data,
       credentials: 'include',
-    });
+    })
+
     if (response.ok) {
       setRedirect(true);
     }
@@ -48,7 +53,7 @@ export default function EditPost() {
 
   return (
     <form className="post-change" onSubmit={updatePost}>
-      <h1 className="post-change__heading">Add new post</h1>
+      <h1 className="post-change__heading">Edit post</h1>
 
       <div className="post-change__box">
         <label htmlFor="title" className="post-change__label">Title</label>
