@@ -1,14 +1,15 @@
-import {useEffect, useState} from "react";
-import {Navigate, useParams} from "react-router-dom";
-import Editor from "../Editor";
+import { useEffect, useState } from "react"
+import { Navigate, useParams } from "react-router-dom"
+
+import Editor from "../Editor"
 
 export default function EditPost() {
-  const {id} = useParams();
-  const [title,setTitle] = useState('');
-  const [summary,setSummary] = useState('');
-  const [content,setContent] = useState('');
-  const [files, setFiles] = useState('');
-  const [redirect,setRedirect] = useState(false);
+  const {id} = useParams()
+  const [title,setTitle] = useState('')
+  const [summary,setSummary] = useState('')
+  const [content,setContent] = useState('')
+  const [files, setFiles] = useState('')
+  const [redirect,setRedirect] = useState(false)
 
   useEffect(() => {
     fetch('http://localhost:4000/post/'+id)
@@ -46,19 +47,50 @@ export default function EditPost() {
   }
 
   return (
-    <form onSubmit={updatePost}>
-      <input type="title"
-             placeholder={'Title'}
-             value={title}
-             onChange={ev => setTitle(ev.target.value)} />
-      <input type="summary"
-             placeholder={'Summary'}
-             value={summary}
-             onChange={ev => setSummary(ev.target.value)} />
-      <input type="file"
-             onChange={ev => setFiles(ev.target.files)} />
-      <Editor onChange={setContent} value={content} />
-      <button style={{marginTop:'5px'}}>Update post</button>
+    <form className="post-change" onSubmit={updatePost}>
+      <h1 className="post-change__heading">Add new post</h1>
+
+      <div className="post-change__box">
+        <label htmlFor="title" className="post-change__label">Title</label>
+        <textarea 
+          id="title"
+          className="post-change__title"
+          type="title"
+          value={title}
+          rows={5}
+          onChange={ev => setTitle(ev.target.value)} 
+        ></textarea>
+      </div>
+
+      <div className="post-change__box">
+        <label htmlFor="summary" className="post-change__label">Sumary</label>
+        <textarea 
+          className="post-change__summary"
+          type="summary"
+          rows={10}
+          id="summary"
+          value={summary}
+          onChange={ev => setSummary(ev.target.value)}
+        ></textarea>
+      </div>
+
+      <div className="post-change__box">
+        <label htmlFor="file" className="post-change__label">Image file</label>
+        <input 
+          className="post-change__file"
+          id="file"
+          type="file"
+          onChange={ev => setFiles(ev.target.files)} 
+        />
+      </div>
+
+      <Editor 
+        className="post-change__editor"
+        value={content} 
+        onChange={setContent} 
+      />
+
+      <button className="post-change__button" type="submit" rows={30}>Create post</button>
     </form>
   );
 }

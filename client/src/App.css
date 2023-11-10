@@ -21,9 +21,13 @@ img {
 
 main {
   padding-top: 30px;
-  max-width: 960px;
+  max-width: 1000px;
   margin: 0 auto;
   min-height: 100vh;
+}
+
+.content {
+  height: 100%;
 }
 
 .container {
@@ -48,7 +52,7 @@ main {
 .navbar__container {
   margin: 0 auto;
 
-  max-width: 960px;
+  max-width: 1000px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -107,6 +111,33 @@ main {
   color: #000000;
   font-weight: 600;
   text-align: center;
+}
+
+/* banner */
+.banner {
+  background: url('./../public/banner.jpg');
+  background-position: right;
+  background-size: cover;
+  padding: 240px 0;
+}
+
+.banner__box {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.banner__heading {
+  font-size: 60px;
+  font-weight: bold;
+  color: #000000;
+  text-transform: uppercase;
+}
+
+.banner__subheading {
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 8px;
+  color: #000000;
 }
 
 /* post */
@@ -184,6 +215,155 @@ main {
   text-align: center;
 }
 
+/* post page */
+.post-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.post-page__heading,
+.post-change__heading {
+  font-weight: semibold;
+  font-size: 24px;
+}
+
+.post-page__box-info {
+  display: flex;
+  justify-content: flex-start;
+  gap: 30px;
+}
+
+.post-page__time,
+.post-page__author {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.post-page__edit {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.post-page__edit-btn {
+  padding: 8px 20px;
+  color: #ffffff;
+  background-color: #111111;
+  text-decoration: none;
+  border-radius: 8px;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.post-page__edit-btn svg {
+  width: 18px;
+}
+
+.post-page__image,
+.post-page__image img {
+  border-radius: 10px;
+}
+
+.post-page__summary {
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* post-change */
+.post-change {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.post-change__box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.post-change__label {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.post-change__title,
+.post-change__summary {
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.post-change__file {
+  border: 1px solid #222222;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.post-change__button {
+  width: 200px;
+  border: none;
+  border-radius: 8px; 
+  font-weight: 600;
+  outline: none;
+  padding: 8px;
+  background-color: coral;
+  margin-bottom: 60px;
+}
+
+
+/* auth */
+.auth {
+  padding-top: 200px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.auth__heading {
+  font-size: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.auth__box {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.auth__label {
+  font-size: 12px;
+}
+
+.auth__password,
+.auth__username {
+  width: 300px;
+  max-width: 360px;
+  padding: 10px;
+  border-radius: 8px;
+  outline: none;
+  border: none;
+}
+
+.auth__button {
+  margin-top: 4px;
+  padding: 8px 20px;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  background-color: coral;
+  font-size: 14px;
+  font-weight: 600;
+}
 
 /* footer */
 .footer {
@@ -201,86 +381,3 @@ main {
 
 
 
-
-form.login, form.register{
-    max-width: 400px;
-    margin: 0 auto;
-}
-input{
-    display: block;
-    margin-bottom: 5px;
-    width: 100%;
-    padding: 5px 7px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    background-color: #fff;
-}
-button{
-    cursor: pointer;
-    width: 100%;
-    display: block;
-    background-color: #555;
-    border:0;
-    color: #fff;
-    border-radius: 5px;
-    padding: 7px 0;
-}
-form.login h1, form.register h1{
-    text-align: center;
-}
-
-div.post-page div.image{
-    max-height:300px;
-    display: flex;
-    overflow:hidden;
-}
-div.post-page div.image img{
-    object-fit: cover;
-    object-position: center center;
-    width: 100%;
-}
-div.post-page a{
-    color:#333;
-    text-decoration: underline;
-}
-div.post-page h1{
-    text-align: center;
-    margin: 10px 0 5px;
-}
-div.post-page time{
-    text-align: center;
-    display: block;
-    font-size:1rem;
-    color:#aaa;
-    margin: 10px 0;
-}
-div.post-page div.author{
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: .7rem;
-    font-weight: bold;
-}
-div.content p{
-    line-height: 1.7rem;
-    margin: 30px 0;
-}
-div.content li{
-    margin-bottom: 10px;
-}
-div.edit-row{
-    text-align: center;
-    margin-bottom: 20px;
-}
-div.post-page a.edit-btn{
-    background-color: #333;
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    color: #fff;
-    padding:15px 30px;
-    border-radius: 5px;
-    text-decoration: none;
-}
-a svg{
-    height:20px;
-}
